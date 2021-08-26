@@ -12,6 +12,7 @@ export const Overlay = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(70, 90, 150, 0.5);
+    z-index:999;
 `
 export const Dialog = styled.div`
     display: flex;

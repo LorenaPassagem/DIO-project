@@ -5,10 +5,12 @@ import TextField, { Input} from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import Slider from 'react-slick';
 import restauranteFake from '../../assets/img/restaurante-fake.png'
-import {Img} from '../../Components'
+import {Img, Modal} from '../../Components'
 import RestaurantCard from '../../Components/RestaurantCard';
 
 const Home = () => {
+  const [modalOpened, setModalOpened] = useState(false)
+
   const settings = {
     dots: false,
     infinite: true,
@@ -54,8 +56,12 @@ const Home = () => {
           </Carossel>
           </Slider>
           <RestaurantCard />
+          <button onClick={()=>setModalOpened(true)}>ABRIR MODAL</button>
       </Container>
-      <Map />      
+         
+      <Map />
+      <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
+      
    </Wrapper>
   ) 
 }
