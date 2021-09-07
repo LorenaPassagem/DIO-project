@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Logo, Search, Wrapper, Map, Carossel, CarouselTitle } from './style';
+import { Container, Logo, Search, Wrapper, Carossel, CarouselTitle } from './style';
 import LogoRest from '../../assets/img/logo.svg';
 import TextField, { Input} from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import restauranteFake from '../../assets/img/restaurante-fake.png'
 import {Img, Modal} from '../../Components'
 import RestaurantCard from '../../Components/RestaurantCard';
+import Maps from '../../Components/Maps';
 
 const Home = () => {
   const [modalOpened, setModalOpened] = useState(false)
@@ -20,7 +21,7 @@ const Home = () => {
     adaptHeight:true
   };
 
-  const [value, SetValue] = useState('Pesquisar');
+  const [value, setValue] = useState('Pesquisar');
    return( 
     <Wrapper>    
       <Container>
@@ -32,7 +33,7 @@ const Home = () => {
           >
           <Input 
             value={value}
-            onChange={(e) => SetValue(e.target.value) } />
+            onChange={(e) => setValue(e.target.value) } />
           </TextField>
           </Search>
           <CarouselTitle > Na sua Área </CarouselTitle>
@@ -59,7 +60,7 @@ const Home = () => {
           <button onClick={()=>setModalOpened(true)}>ABRIR MODAL</button>
       </Container>
          
-      <Map />
+      <Maps />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
       
    </Wrapper>
